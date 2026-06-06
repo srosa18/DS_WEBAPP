@@ -233,3 +233,5 @@ code, .code {
 .dev-copy__btn:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.28); }
 .dev-copy__btn:focus-visible { outline: 2px solid var(--orange-500); outline-offset: 2px; }
 .dev-copy__btn.is-copied { color: var(--green-500, #2fbf71); border-color: var(--green-500, #2fbf71); }
+.dev-copy__hint { font-size: 10px; color: rgba(255,255,255,.45); }
+@media (max-width: 560px) { .dev-copy__hint { display: none; } }
