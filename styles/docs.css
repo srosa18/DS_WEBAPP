@@ -1,0 +1,219 @@
+/* ============================================================
+   ACHONDROPLASIA SUMMIT BRAZIL 2026 — Design System
+   DOCS CHROME — documentation site layout (not part of the kit)
+   ============================================================ */
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--text-on-dark);
+  background: var(--navy-900);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* DNA-evoking ambient background (decorative, no hand-drawn DNA) */
+.doc-bg {
+  position: fixed; inset: 0; z-index: -1;
+  background:
+    radial-gradient(820px 520px at 82% -6%, rgba(255,99,0,0.22), transparent 60%),
+    radial-gradient(720px 620px at 8% 34%, rgba(255,8,132,0.18), transparent 60%),
+    radial-gradient(900px 700px at 100% 100%, rgba(255,0,146,0.12), transparent 60%),
+    linear-gradient(180deg, #000046 14%, #000019 70%);
+}
+
+/* ---------- Layout ---------- */
+.layout { display: grid; grid-template-columns: 264px 1fr; min-height: 100vh; }
+
+.sidebar {
+  position: sticky; top: 0; align-self: start;
+  height: 100vh; overflow-y: auto;
+  padding: 28px 22px;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  background: rgba(0,0,25,0.5);
+  backdrop-filter: blur(6px);
+}
+.sidebar__brand { display: flex; flex-direction: column; gap: 4px; margin-bottom: 28px; }
+.sidebar__kicker { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; }
+.sidebar__title {
+  font-weight: 800; font-size: 17px; line-height: 1.1;
+  background: var(--grad-brand-primary);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.nav-group { margin-bottom: 22px; }
+.nav-group__label { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.45; margin-bottom: 8px; }
+.nav-link {
+  display: block; padding: 7px 10px; border-radius: 8px;
+  color: var(--text-on-dark); text-decoration: none; font-size: 13px; opacity: 0.78;
+  transition: background 150ms, opacity 150ms;
+}
+.nav-link:hover { background: rgba(255,255,255,0.06); opacity: 1; }
+.nav-link.is-active { background: rgba(255,99,0,0.16); color: #ff8a3d; opacity: 1; font-weight: 600; }
+
+.main { padding: 0; min-width: 0; }
+.page { max-width: 1080px; margin: 0 auto; padding: 56px 56px 120px; }
+
+/* ---------- Page header ---------- */
+.page-head { margin-bottom: 48px; }
+.page-head__eyebrow { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #ff8a3d; font-weight: 700; }
+.page-head h1 { font-size: 40px; line-height: 1.05; margin: 12px 0 14px; font-weight: 800; letter-spacing: -0.5px; }
+.page-head p { font-size: 15px; line-height: 1.6; opacity: 0.7; max-width: 640px; margin: 0; }
+
+/* ---------- Section ---------- */
+.sec { margin-top: 64px; scroll-margin-top: 24px; }
+.sec__num { font-size: 12px; font-weight: 700; color: #ff8a3d; letter-spacing: 1px; }
+.sec__title { font-size: 24px; font-weight: 800; margin: 6px 0 8px; letter-spacing: -0.3px; }
+.sec__desc { font-size: 14px; line-height: 1.6; opacity: 0.65; max-width: 620px; margin: 0 0 28px; }
+.subsec__title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.55; margin: 32px 0 14px; }
+
+/* ---------- Demo stage (where components render) ---------- */
+.demo {
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.02);
+  overflow: hidden;
+}
+.demo__caption {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 14px 18px; border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.demo__caption h3 { font-size: 15px; font-weight: 700; margin: 0; }
+.demo__caption .tag { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; opacity: 0.45; }
+.demo__note { padding: 0 18px; font-size: 13px; line-height: 1.55; opacity: 0.6; margin: 12px 0 0; }
+.demo__stage {
+  padding: 28px;
+  display: flex; flex-wrap: wrap; align-items: flex-start; gap: 18px;
+}
+.demo__stage--col { flex-direction: column; align-items: stretch; }
+.demo__stage--dna { background:
+    radial-gradient(500px 300px at 80% 0%, rgba(255,99,0,0.18), transparent 60%),
+    radial-gradient(400px 300px at 0% 60%, rgba(255,8,132,0.14), transparent 60%); }
+.state-label { font-size: 10px; letter-spacing: 0.8px; text-transform: uppercase; opacity: 0.5; margin-bottom: 8px; display: block; }
+.state-cell { display: flex; flex-direction: column; align-items: flex-start; }
+.on-light { background: var(--surface-raised); border-radius: 14px; padding: 20px; }
+
+/* ---------- Token cards / swatches ---------- */
+.grid { display: grid; gap: 14px; }
+.grid--swatch { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+.grid--semantic { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+.grid--spec { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }
+
+.swatch {
+  border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; overflow: hidden; background: rgba(255,255,255,0.02);
+}
+.swatch__chip { height: 72px; }
+.swatch__meta { padding: 10px 12px; }
+.swatch__name { font-size: 12px; font-weight: 600; }
+.swatch__val { font-size: 11px; opacity: 0.55; font-family: ui-monospace, "SF Mono", Menlo, monospace; margin-top: 2px; }
+.swatch__role { font-size: 11px; opacity: 0.7; margin-top: 2px; }
+
+.spec {
+  border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 16px;
+  background: rgba(255,255,255,0.02);
+}
+.spec__val { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; }
+.spec__name { font-size: 12px; opacity: 0.6; margin-top: 4px; }
+.spec__token { font-size: 10px; opacity: 0.4; font-family: ui-monospace, Menlo, monospace; margin-top: 6px; }
+
+/* radius / spacing visual */
+.viz { background: var(--grad-brand-primary-strong); }
+.viz--radius { width: 64px; height: 64px; }
+.viz--space { background: #ff8a3d; height: 28px; }
+
+code, .code {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 12px;
+  background: rgba(255,255,255,0.07);
+  padding: 2px 6px; border-radius: 5px;
+}
+
+/* type specimen */
+.type-row { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.type-row__meta { width: 180px; flex: none; }
+.type-row__meta b { font-size: 13px; } 
+.type-row__meta span { display: block; font-size: 11px; opacity: 0.5; font-family: ui-monospace, Menlo, monospace; margin-top: 2px; }
+.type-row__sample { line-height: 1.1; }
+
+/* callout */
+.callout {
+  border: 1px solid rgba(255,99,0,0.35); border-left-width: 4px;
+  border-radius: 12px; padding: 18px 20px; background: rgba(255,99,0,0.07);
+  margin-top: 18px;
+}
+.callout h4 { margin: 0 0 6px; font-size: 14px; font-weight: 700; color: #ff8a3d; }
+.callout p { margin: 0; font-size: 13px; line-height: 1.6; opacity: 0.85; }
+.callout--info { border-color: rgba(77,159,255,0.4); background: rgba(77,159,255,0.07); }
+.callout--info h4 { color: var(--blue-500); }
+
+/* checklist */
+.checklist { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.checklist li { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; line-height: 1.5; }
+.checklist svg { flex: none; color: var(--green-500); margin-top: 2px; }
+
+/* mobile frame for in-context screens */
+.frame-rail { display: flex; flex-wrap: wrap; gap: 32px; }
+.phone {
+  width: 320px; flex: none;
+  border-radius: 36px; padding: 10px;
+  background: #05050f; border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+}
+.phone__screen {
+  position: relative; border-radius: 28px; overflow: hidden;
+  height: 660px; overflow-y: auto;
+  background:
+    radial-gradient(200px 150px at 86% 4%, rgba(255,99,0,0.45), transparent 70%),
+    radial-gradient(240px 200px at 6% 22%, rgba(255,8,132,0.4), transparent 70%),
+    radial-gradient(180px 220px at 100% 96%, rgba(255,0,146,0.25), transparent 70%),
+    var(--grad-surface-background);
+}
+.phone__caption { text-align: center; font-size: 12px; opacity: 0.6; margin-top: 14px; }
+.phone__screen::-webkit-scrollbar { width: 0; }
+
+/* brand logo block */
+.brand-logo { text-align: center; }
+.brand-logo__row1 {
+  font-weight: 800; font-size: 30px; letter-spacing: 1px; line-height: 1;
+  background: var(--grad-brand-primary);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.brand-logo__row2 { display: flex; align-items: center; justify-content: center; gap: 22px; margin-top: 6px; }
+.brand-logo__edition { font-size: 10px; font-weight: 700; letter-spacing: 1px; white-space: nowrap; }
+.brand-logo__script { font-family: var(--font-script); font-size: 32px; line-height: 1; padding: 0 8px 0 2px; }
+.brand-logo__brazil { font-size: 12px; font-weight: 700; letter-spacing: 5px; }
+.biomarin-wm { font-size: 22px; font-weight: 300; letter-spacing: 4px; }
+.biomarin-wm b { font-weight: 700; }
+
+/* ---- screen reconstruction chrome ---- */
+.scr { display: flex; flex-direction: column; min-height: 100%; }
+.scr-hero {
+  position: relative; padding: 22px 24px 8px; text-align: center;
+}
+.scr-hero__icon { width: 38px; height: 38px; color: var(--accent-default); margin: 16px auto 8px; display: block; }
+.scr-body { flex: 1; padding: 8px 22px 20px; display: flex; flex-direction: column; gap: 16px; }
+.scr-footer { padding: 20px 24px 28px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.scr-footer .biomarin-wm { font-size: 18px; }
+.scr-footer .footer-legal { font-size: 9px; }
+.scr .brand-logo__row1 { font-size: 21px; letter-spacing: 0; }
+.scr .brand-logo__row2 { gap: 12px; margin-top: 4px; }
+.scr .brand-logo__edition { font-size: 8px; }
+.scr .brand-logo__script { font-size: 24px; padding: 0 4px 0 2px; }
+.scr .brand-logo__brazil { font-size: 9px; letter-spacing: 3px; }
+.scr-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--orange-500), transparent); opacity: .5; margin: 8px 0; }
+
+/* striped image placeholder (drop real photos here) */
+.img-ph {
+  display: grid; place-items: center;
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,70,.06) 0 8px, rgba(0,0,70,.03) 8px 16px);
+  color: rgba(0,0,70,.5);
+  font-family: ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing: .5px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 880px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .page { padding: 40px 22px 100px; }
+}

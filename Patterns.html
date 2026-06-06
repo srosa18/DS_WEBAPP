@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patterns &amp; Accessibility — Achondroplasia Summit Brazil 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Allura&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/components.css">
+<link rel="stylesheet" href="styles/docs.css">
+</head>
+<body class="asb">
+<div class="doc-bg"></div>
+<div class="layout">
+  <main class="main">
+    <div class="page">
+
+      <header class="page-head">
+        <span class="page-head__eyebrow">Sections 3 — 5</span>
+        <h1>Patterns &amp; Accessibility</h1>
+        <p>How the components combine into reliable experiences: navigation, forms, feedback, and lists — plus the AA requirements that gate every screen before it ships.</p>
+      </header>
+
+      <!-- 3.1 NAV / IA -->
+      <section class="sec" id="nav-ia">
+        <div class="sec__num">3.1</div>
+        <h2 class="sec__title">Navigation &amp; information architecture</h2>
+        <p class="sec__desc">Root screens carry the Tab Bar (5 destinations). Inner screens use the App Bar with back. Login lives outside the tabs.</p>
+        <div class="demo">
+          <div class="demo__caption"><h3>Screen map</h3><span class="tag">11 screens</span></div>
+          <div class="demo__stage" style="gap:10px;">
+            <span class="chip" style="cursor:default;">Login <span style="opacity:.6;">· outside tabs</span></span>
+            <span class="chip" style="cursor:default;">Home</span>
+            <span class="chip chip--selected" style="cursor:default;">Feed</span>
+            <span class="chip chip--selected" style="cursor:default;">Networking</span>
+            <span class="chip chip--selected" style="cursor:default;">Chat</span>
+            <span class="chip chip--selected" style="cursor:default;">Agenda</span>
+            <span class="chip chip--selected" style="cursor:default;">Profile</span>
+            <span class="chip" style="cursor:default;">Comments</span>
+            <span class="chip" style="cursor:default;">Help</span>
+            <span class="chip" style="cursor:default;">Travel Hints</span>
+            <span class="chip" style="cursor:default;">Modal</span>
+          </div>
+          <p class="demo__note" style="padding-bottom:18px;">Filled chips = Tab Bar destinations. Outlined = reached via App Bar / actions.</p>
+        </div>
+      </section>
+
+      <!-- 3.2 FORMS -->
+      <section class="sec" id="forms">
+        <div class="sec__num">3.2</div>
+        <h2 class="sec__title">Forms</h2>
+        <p class="sec__desc">Section title → Fields (persistent labels) → primary action. Closed domains (Country, Specialty) are Selects. Phone uses a mask. Validate on-blur and on submit; errors show a red border + message (text + icon). Submit goes to loading; success raises a Toast.</p>
+        <div class="demo">
+          <div class="demo__caption"><h3>Validation flow</h3><span class="tag">3.2</span></div>
+          <div class="demo__stage demo__stage--dna" style="gap:24px;">
+            <div class="state-cell" style="flex:1;min-width:240px;">
+              <span class="state-label">1 · Default</span>
+              <div class="field" style="width:100%;"><label class="field__label">Email</label><input class="input" placeholder="youremail@bmrn.com"></div>
+            </div>
+            <div class="state-cell" style="flex:1;min-width:240px;">
+              <span class="state-label">2 · Error (on blur)</span>
+              <div class="field" style="width:100%;"><label class="field__label">Email</label><input class="input is-error" value="not-an-email" aria-invalid="true"><span class="field__error"><svg width="14" height="14"><use href="#i-error"/></svg> Enter a valid email.</span></div>
+            </div>
+            <div class="state-cell" style="flex:1;min-width:240px;">
+              <span class="state-label">3 · Submitting → success</span>
+              <button class="btn btn--primary btn--block" data-loading="true" style="margin-bottom:12px;"><span class="btn__label">SAVE</span></button>
+              <div class="toast toast--success" role="status" style="min-width:0;width:100%;"><svg class="toast__icon" width="18" height="18"><use href="#i-success"/></svg><span class="toast__msg">Saved.</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3.3 FEEDBACK -->
+      <section class="sec" id="feedback">
+        <div class="sec__num">3.3</div>
+        <h2 class="sec__title">Feedback</h2>
+        <p class="sec__desc">Match the signal to the moment — never over-interrupt.</p>
+        <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(230px,1fr));">
+          <div class="spec"><div class="spec__name" style="font-weight:700;font-size:14px;color:#fff;">Light confirmation</div><div class="spec__token" style="opacity:.6;">→ Toast (4s)</div></div>
+          <div class="spec"><div class="spec__name" style="font-weight:700;font-size:14px;color:#fff;">Recoverable error</div><div class="spec__token" style="opacity:.6;">→ Toast / Error State + retry</div></div>
+          <div class="spec"><div class="spec__name" style="font-weight:700;font-size:14px;color:#fff;">Field validation</div><div class="spec__token" style="opacity:.6;">→ inline in the Field</div></div>
+          <div class="spec"><div class="spec__name" style="font-weight:700;font-size:14px;color:#fff;">Destructive confirm</div><div class="spec__token" style="opacity:.6;">→ Modal</div></div>
+          <div class="spec"><div class="spec__name" style="font-weight:700;font-size:14px;color:#fff;">Loading a list</div><div class="spec__token" style="opacity:.6;">→ Skeleton</div></div>
+          <div class="spec"><div class="spec__name" style="font-weight:700;font-size:14px;color:#fff;">Loading an action</div><div class="spec__token" style="opacity:.6;">→ Spinner</div></div>
+          <div class="spec"><div class="spec__name" style="font-weight:700;font-size:14px;color:#fff;">Empty list</div><div class="spec__token" style="opacity:.6;">→ Empty State</div></div>
+        </div>
+      </section>
+
+      <!-- 3.4 LISTS -->
+      <section class="sec" id="lists">
+        <div class="sec__num">3.4</div>
+        <h2 class="sec__title">Lists</h2>
+        <p class="sec__desc">Feed · Comments · Networking · Chat · Agenda all follow the same lifecycle: <b>Skeleton → items / Empty / Error</b>. Items pair avatar/icon + content + action, with a divider over light surfaces.</p>
+        <div class="demo">
+          <div class="demo__caption"><h3>List lifecycle</h3><span class="tag">3.4</span></div>
+          <div class="demo__stage demo__stage--dna" style="gap:18px;align-items:stretch;">
+            <div class="state-cell" style="flex:1;min-width:200px;"><span class="state-label">Loading</span>
+              <div class="on-light" style="display:flex;flex-direction:column;gap:10px;"><div style="display:flex;gap:10px;align-items:center;"><span class="skeleton skeleton--avatar"></span><span class="skeleton skeleton--line" style="width:120px;"></span></div><div class="skeleton skeleton--line"></div><div class="skeleton skeleton--line" style="width:60%;"></div></div>
+            </div>
+            <div class="state-cell" style="flex:1;min-width:200px;"><span class="state-label">Loaded</span>
+              <div class="on-light"><div class="comment"><div class="comment__name">Dr. Helena Costa</div><p class="comment__body">Great protocol — thank you.</p></div><div class="comment" style="border-bottom:none;"><div class="comment__name">Dr. Marco Lima</div><p class="comment__body">Will the slides be shared?</p></div></div>
+            </div>
+            <div class="state-cell" style="flex:1;min-width:200px;"><span class="state-label">Empty</span>
+              <div class="state" style="padding:24px 12px;"><svg class="state__icon" width="32" height="32"><use href="#i-inbox"/></svg><div class="state__title" style="font-size:14px;">No comments yet</div><p class="state__text" style="font-size:11px;">Be the first to reply.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3.5 CHECKLIST -->
+      <section class="sec" id="checklist">
+        <div class="sec__num">3.5</div>
+        <h2 class="sec__title">“Screen ready” checklist</h2>
+        <p class="sec__desc">A screen isn't done until every box is ticked.</p>
+        <ul class="checklist">
+          <li><svg width="20" height="20"><use href="#i-success"/></svg> Navigation in place (Tab Bar or App Bar back)</li>
+          <li><svg width="20" height="20"><use href="#i-success"/></svg> Loading state (Skeleton / Spinner)</li>
+          <li><svg width="20" height="20"><use href="#i-success"/></svg> Empty state</li>
+          <li><svg width="20" height="20"><use href="#i-success"/></svg> Error state with retry</li>
+          <li><svg width="20" height="20"><use href="#i-success"/></svg> Visible focus + logical keyboard order</li>
+          <li><svg width="20" height="20"><use href="#i-success"/></svg> AA contrast</li>
+          <li><svg width="20" height="20"><use href="#i-success"/></svg> Copy reviewed (tone + regulatory)</li>
+          <li><svg width="20" height="20"><use href="#i-success"/></svg> Zero loose values — tokens only</li>
+        </ul>
+      </section>
+
+      <!-- 4 ACCESSIBILITY -->
+      <section class="sec" id="accessibility">
+        <div class="sec__num">4</div>
+        <h2 class="sec__title">Accessibility (AA requirements)</h2>
+        <p class="sec__desc">The event's subject gives accessibility extra weight. These are requirements, not guidelines.</p>
+        <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(270px,1fr));">
+          <div class="spec"><div class="spec__name" style="font-weight:700;font-size:14px;color:#fff;">Contrast</div><div class="spec__token" style="opacity:.6;">Text ≥ 4.5:1 · large text &amp; UI ≥ 3:1. (Hence the strong gradient on buttons.)</div></div>
+          <div class="spec"><div class="spec__name" style="font-weight:700;font-size:14px;color:#fff;">Visible focus</div><div class="spec__token" style="opacity:.6;">2px orange ring, offset 2px, on every interactive.</div></div>
+          <div class="spec"><div class="spec__name" style="font-weight:700;font-size:14px;color:#fff;">Persistent labels</div><div class="spec__token" style="opacity:.6;">Placeholder is never the only label (Field component).</div></div>
+          <div class="spec"><div class="spec__name" style="font-weight:700;font-size:14px;color:#fff;">Touch targets</div><div class="spec__token" style="opacity:.6;">≥ 44px on all controls.</div></div>
+          <div class="spec"><div class="spec__name" style="font-weight:700;font-size:14px;color:#fff;">Motion</div><div class="spec__token" style="opacity:.6;">Respects prefers-reduced-motion.</div></div>
+          <div class="spec"><div class="spec__name" style="font-weight:700;font-size:14px;color:#fff;">Not color alone</div><div class="spec__token" style="opacity:.6;">States carry text + icon. ARIA: aria-busy/live, role=alert, aria-required/invalid.</div></div>
+        </div>
+        <div class="demo" style="margin-top:24px;">
+          <div class="demo__caption"><h3>Focus ring &amp; contrast in practice</h3><span class="tag">live</span></div>
+          <div class="demo__stage demo__stage--dna" style="align-items:center;gap:24px;">
+            <button class="btn btn--primary" style="outline:2px solid var(--orange-500);outline-offset:2px;"><span class="btn__label">FOCUSED</span></button>
+            <input class="input" style="width:220px;box-shadow:0 0 0 2px rgba(255,99,0,.45);" value="Focused field">
+            <div class="field" style="width:200px;"><label class="field__label">Country <span class="req">*</span></label><div class="select__control" style="border-radius:32px;"><span>Brazil</span><svg class="select__chevron" width="20" height="20"><use href="#i-chevron-down"/></svg></div></div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<script>
+window.__DOC_PAGE = "patterns";
+window.__DOC_SECTIONS = [
+  { id: "nav-ia", label: "Navigation & IA" },
+  { id: "forms", label: "Forms" },
+  { id: "feedback", label: "Feedback" },
+  { id: "lists", label: "Lists" },
+  { id: "checklist", label: "Screen-ready checklist" },
+  { id: "accessibility", label: "Accessibility (AA)" }
+];
+</script>
+<script src="styles/icons.js"></script>
+<script src="styles/nav.js"></script>
+</body>
+</html>

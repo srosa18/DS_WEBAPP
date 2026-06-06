@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Screens in context — Achondroplasia Summit Brazil 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Allura&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/components.css">
+<link rel="stylesheet" href="styles/docs.css">
+</head>
+<body class="asb">
+<div class="doc-bg"></div>
+<div class="layout">
+  <main class="main">
+    <div class="page">
+
+      <header class="page-head">
+        <span class="page-head__eyebrow">In context</span>
+        <h1>Screens in context</h1>
+        <p>The key flows assembled from system components only — no one-off styling. Each screen reuses the fixed brand header, the regulatory footer, and tokenized components. This is the proof that the kit composes into the real app at 440px.</p>
+      </header>
+
+      <section class="sec" id="entry" style="margin-top:32px;">
+        <div class="sec__num">ENTRY</div>
+        <h2 class="sec__title">Login &amp; Home</h2>
+        <p class="sec__desc">Login lives outside the tabs; Home is the 6-card hub.</p>
+        <div class="frame-rail">
+          <div><div class="phone"><div class="phone__screen" data-screen="login"></div></div><div class="phone__caption">Login</div></div>
+          <div><div class="phone"><div class="phone__screen" data-screen="home"></div></div><div class="phone__caption">Home</div></div>
+        </div>
+      </section>
+
+      <section class="sec" id="social">
+        <div class="sec__num">SOCIAL</div>
+        <h2 class="sec__title">Feed &amp; Networking</h2>
+        <p class="sec__desc">Post cards in the Feed; the Networking gateway to profile + chat.</p>
+        <div class="frame-rail">
+          <div><div class="phone"><div class="phone__screen" data-screen="feed"></div></div><div class="phone__caption">Feed</div></div>
+          <div><div class="phone"><div class="phone__screen" data-screen="networking"></div></div><div class="phone__caption">Networking</div></div>
+        </div>
+      </section>
+
+      <section class="sec" id="logistics">
+        <div class="sec__num">LOGISTICS</div>
+        <h2 class="sec__title">Help &amp; Travel Hints</h2>
+        <p class="sec__desc">Action buttons with WhatsApp affordance; the travel guide list.</p>
+        <div class="frame-rail">
+          <div><div class="phone"><div class="phone__screen" data-screen="help"></div></div><div class="phone__caption">Help</div></div>
+          <div><div class="phone"><div class="phone__screen" data-screen="travel"></div></div><div class="phone__caption">Travel Hints</div></div>
+        </div>
+      </section>
+
+      <section class="sec" id="account">
+        <div class="sec__num">ACCOUNT</div>
+        <h2 class="sec__title">Profile form</h2>
+        <p class="sec__desc">The form pattern in full: section titles, mandatory tags, Fields, Selects for closed domains, and a primary Save.</p>
+        <div class="frame-rail">
+          <div><div class="phone"><div class="phone__screen" data-screen="profile"></div></div><div class="phone__caption">Profile</div></div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<script>
+window.__DOC_PAGE = "screens";
+window.__DOC_SECTIONS = [
+  { id: "entry", label: "Login & Home" },
+  { id: "social", label: "Feed & Networking" },
+  { id: "logistics", label: "Help & Travel Hints" },
+  { id: "account", label: "Profile form" }
+];
+</script>
+<script src="styles/icons.js"></script>
+<script src="styles/nav.js"></script>
+<script src="styles/screens.js"></script>
+</body>
+</html>

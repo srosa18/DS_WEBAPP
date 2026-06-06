@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Achondroplasia Summit Brazil 2026 — Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Allura&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/components.css">
+<link rel="stylesheet" href="styles/docs.css">
+</head>
+<body class="asb">
+<div class="doc-bg"></div>
+<div class="layout">
+  <main class="main">
+    <div class="page">
+
+      <!-- ===== Cover / Overview ===== -->
+      <header class="page-head" id="overview">
+        <div class="brand-logo" style="text-align:left;margin-bottom:28px;">
+          <div class="brand-logo__row1">ACHONDROPLASIA</div>
+          <div class="brand-logo__row2" style="justify-content:flex-start;">
+            <span class="brand-logo__edition">5<sup>TH</sup> EDITION · 2026</span>
+            <span class="brand-logo__script">Summit</span>
+            <span class="brand-logo__brazil">BRAZIL</span>
+          </div>
+        </div>
+        <span class="page-head__eyebrow">Design System &amp; Component Library</span>
+        <h1>The complete UI kit for the<br>Summit Brazil 2026 webapp</h1>
+        <p>A mobile-first, dark-only system for the BioMarin-funded medical event app, built for healthcare professionals. Reference platform: <code>440px</code>. Everything below is token-driven — semantic over primitive, pill for actions &amp; fields, 16px cards for content, separation by contrast (not shadow), and accessibility AA as a hard requirement.</p>
+      </header>
+
+      <!-- ===== Principles ===== -->
+      <section class="sec" id="principles">
+        <div class="sec__num">PRINCIPLES</div>
+        <h2 class="sec__title">Five rules the system never breaks</h2>
+        <div class="grid grid--spec" style="margin-top:8px;">
+          <div class="spec"><div class="spec__name" style="opacity:.9;font-weight:700;font-size:14px;">Tokens first</div><div class="spec__token" style="opacity:.6;">No loose values — every property maps to a variable.</div></div>
+          <div class="spec"><div class="spec__name" style="opacity:.9;font-weight:700;font-size:14px;">Semantic over primitive</div><div class="spec__token" style="opacity:.6;">Components consume roles, not raw hex.</div></div>
+          <div class="spec"><div class="spec__name" style="opacity:.9;font-weight:700;font-size:14px;">Pill + Card</div><div class="spec__token" style="opacity:.6;">Pill = actions/fields · 16px card = content.</div></div>
+          <div class="spec"><div class="spec__name" style="opacity:.9;font-weight:700;font-size:14px;">Contrast, not shadow</div><div class="spec__token" style="opacity:.6;">Surfaces separate by color, not elevation.</div></div>
+          <div class="spec"><div class="spec__name" style="opacity:.9;font-weight:700;font-size:14px;">AA as requirement</div><div class="spec__token" style="opacity:.6;">Contrast, focus, touch ≥44, motion-safe.</div></div>
+        </div>
+      </section>
+
+      <!-- ===== Colors ===== -->
+      <section class="sec" id="colors">
+        <div class="sec__num">1.1 — 1.2</div>
+        <h2 class="sec__title">Color</h2>
+        <p class="sec__desc">Primitives are the raw palette. Components only ever reference the <b>semantic</b> roles below them, so a brand re-tune touches one layer.</p>
+
+        <div class="subsec__title">Primitives</div>
+        <div class="grid grid--swatch" id="primitives"></div>
+
+        <div class="subsec__title">Semantic roles</div>
+        <div class="grid grid--semantic" id="semantics"></div>
+      </section>
+
+      <!-- ===== Gradients ===== -->
+      <section class="sec" id="gradients">
+        <div class="sec__num">1.3</div>
+        <h2 class="sec__title">Gradients</h2>
+        <p class="sec__desc">The vibrant gradient is <b>decorative only</b> — never place text on it. Buttons with text use the <b>strong</b> variant, which keeps white text at ~5.5:1.</p>
+        <div class="grid" style="grid-template-columns:1fr;gap:18px;">
+          <div class="swatch">
+            <div class="swatch__chip" style="height:88px;background:var(--grad-brand-primary);"></div>
+            <div class="swatch__meta"><div class="swatch__name">brand-primary <span style="color:var(--amber-500);font-weight:700;">· decorative</span></div><div class="swatch__val">linear-gradient(90deg, #ff6300 37%, #ff4925 55%, #ff0884 95%, #ff0092 100%)</div></div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__chip" style="height:88px;background:var(--grad-brand-primary-strong);display:grid;place-items:center;"><span style="font-weight:700;letter-spacing:.48px;">AA — TEXT SAFE</span></div>
+            <div class="swatch__meta"><div class="swatch__name">brand-primary-strong <span style="color:var(--green-500);font-weight:700;">· default for buttons</span></div><div class="swatch__val">linear-gradient(90deg, #b34700 37%, #cc0066 100%)</div></div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__chip" style="height:88px;background:var(--grad-surface-background);"></div>
+            <div class="swatch__meta"><div class="swatch__name">surface-background</div><div class="swatch__val">linear-gradient(180deg, #000046 19.7%, #000019 66.8%) + DNA texture @0.2</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Typography ===== -->
+      <section class="sec" id="type">
+        <div class="sec__num">1.4</div>
+        <h2 class="sec__title">Typography</h2>
+        <p class="sec__desc">Single family: <b>Inter</b> (Light 300 · Regular 400 · Bold 700). One script accent (Allura) is reserved for the “Summit” lockup only.</p>
+        <div>
+          <div class="type-row"><div class="type-row__meta"><b>Display</b><span>24px · Bold · lh 1.0</span></div><div class="type-row__sample" style="font-size:24px;font-weight:700;">Summit Brazil 2026</div></div>
+          <div class="type-row"><div class="type-row__meta"><b>Heading</b><span>20px · Bold · lh 1.0</span></div><div class="type-row__sample" style="font-size:20px;font-weight:700;">Travel Hints</div></div>
+          <div class="type-row"><div class="type-row__meta"><b>Title / Input</b><span>16px · Bold · lh 1.0</span></div><div class="type-row__sample" style="font-size:16px;font-weight:700;">Profile Information</div></div>
+          <div class="type-row"><div class="type-row__meta"><b>Body-strong</b><span>14px · Bold · lh 1.4</span></div><div class="type-row__sample" style="font-size:14px;font-weight:700;">Name Last Name</div></div>
+          <div class="type-row"><div class="type-row__meta"><b>Body</b><span>12px · Regular · lh 1.4</span></div><div class="type-row__sample" style="font-size:12px;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</div></div>
+          <div class="type-row"><div class="type-row__meta"><b>Body · Light</b><span>12px · Light 300 · lh 1.4</span></div><div class="type-row__sample" style="font-size:12px;font-weight:300;">Comment body uses Light 300 for a softer voice.</div></div>
+          <div class="type-row"><div class="type-row__meta"><b>Label / Caption</b><span>11px · Bold · lh 1.0</span></div><div class="type-row__sample" style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;">Medical Specialty *</div></div>
+          <div class="type-row"><div class="type-row__meta"><b>Footer legal</b><span>10px · Regular · lh 1.2</span></div><div class="type-row__sample" style="font-size:10px;opacity:.8;">[VEEVA] June 2026 · Event exclusively for healthcare professionals.</div></div>
+          <div class="type-row"><div class="type-row__meta"><b>Caption-xs</b><span>8px · Bold · badge</span></div><div class="type-row__sample"><span class="badge">9</span></div></div>
+          <div class="type-row"><div class="type-row__meta"><b>Script accent</b><span>Allura · lockup only</span></div><div class="type-row__sample" style="font-family:var(--font-script);font-size:34px;">Summit</div></div>
+        </div>
+        <div class="callout"><h4>Letter-spacing specials</h4><p>Buttons: <code>0.48px</code> UPPERCASE · Password dots: <code>5.44px</code>.</p></div>
+      </section>
+
+      <!-- ===== Spacing ===== -->
+      <section class="sec" id="spacing">
+        <div class="sec__num">1.5</div>
+        <h2 class="sec__title">Spacing</h2>
+        <p class="sec__desc">Base-4 scale. Default container side margin is <code>24px</code>.</p>
+        <div class="grid grid--spec" id="spacing-grid"></div>
+      </section>
+
+      <!-- ===== Radius ===== -->
+      <section class="sec" id="radius">
+        <div class="sec__num">1.6</div>
+        <h2 class="sec__title">Radius</h2>
+        <p class="sec__desc">Pill (32) for actions/fields, card (16) for content, plus selection (6), card-inner (14) and full.</p>
+        <div class="grid grid--spec" id="radius-grid"></div>
+      </section>
+
+      <!-- ===== Sizes ===== -->
+      <section class="sec" id="sizes">
+        <div class="sec__num">1.7 — 1.8</div>
+        <h2 class="sec__title">Sizes, elevation &amp; motion</h2>
+        <p class="sec__desc">Control height is <code>44px</code> — also the minimum touch target. Separation is by contrast; elevation is reserved for floating layers only.</p>
+        <div class="grid grid--spec" id="sizes-grid"></div>
+
+        <div class="subsec__title">Elevation &amp; overlays</div>
+        <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(230px,1fr));">
+          <div class="spec"><div class="spec__name" style="font-weight:700;font-size:14px;">Float elevation</div><div class="spec__token">0 8px 24px rgba(0,0,0,.45)</div><div style="margin-top:12px;height:40px;border-radius:10px;background:var(--surface-field);box-shadow:var(--elevation-float);"></div></div>
+          <div class="spec"><div class="spec__name" style="font-weight:700;font-size:14px;">Modal backdrop</div><div class="spec__token">rgba(0,0,0,.6) + blur(9px)</div></div>
+          <div class="spec"><div class="spec__name" style="font-weight:700;font-size:14px;">Opacity tokens</div><div class="spec__token">muted .7 · decorative .2 · disabled .4</div></div>
+        </div>
+
+        <div class="subsec__title">Motion</div>
+        <div class="grid grid--spec">
+          <div class="spec"><div class="spec__val">150ms</div><div class="spec__name">fast</div></div>
+          <div class="spec"><div class="spec__val">250ms</div><div class="spec__name">base</div></div>
+          <div class="spec"><div class="spec__val">1500ms</div><div class="spec__name">loops (skeleton/spinner)</div></div>
+          <div class="spec"><div class="spec__val" style="font-size:14px;">cubic-bezier</div><div class="spec__name">(0.4, 0, 0.2, 1)</div></div>
+        </div>
+      </section>
+
+      <!-- ===== Brand decisions ===== -->
+      <section class="sec" id="brand-decisions">
+        <div class="sec__num">6</div>
+        <h2 class="sec__title">Two brand decisions to validate</h2>
+        <p class="sec__desc">Flagged per the briefing — both need brand/compliance sign-off before lock.</p>
+
+        <div class="demo">
+          <div class="demo__caption"><h3>1 · Button gradient: vibrant vs. strong</h3><span class="tag">contrast</span></div>
+          <div class="demo__stage" style="gap:28px;">
+            <div class="state-cell">
+              <span class="state-label">Strong (current default) — AA ✓</span>
+              <button class="btn btn--primary"><span class="btn__label">LOG IN</span></button>
+              <span style="font-size:11px;opacity:.55;margin-top:8px;">White text ≈ 5.5:1</span>
+            </div>
+            <div class="state-cell">
+              <span class="state-label">Vibrant alternative — needs ≥18.7px bold</span>
+              <button class="btn btn--vibrant"><span class="btn__label">LOG IN</span></button>
+              <span style="font-size:11px;opacity:.55;margin-top:8px;">Decorative gradient · brand call</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout"><h4>2 · Feedback colors</h4><p>error / success / warning / info are <b>proposals</b> — confirm the tone fits the brand before locking the semantic layer.</p></div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<script>
+window.__DOC_PAGE = "index";
+window.__DOC_SECTIONS = [
+  { id: "overview", label: "Overview" },
+  { id: "principles", label: "Principles" },
+  { id: "colors", label: "Color" },
+  { id: "gradients", label: "Gradients" },
+  { id: "type", label: "Typography" },
+  { id: "spacing", label: "Spacing" },
+  { id: "radius", label: "Radius" },
+  { id: "sizes", label: "Sizes & motion" },
+  { id: "brand-decisions", label: "Brand decisions" }
+];
+</script>
+<script src="styles/icons.js"></script>
+<script src="styles/nav.js"></script>
+<script>
+/* ---- Data-driven token galleries (keeps markup lean) ---- */
+var PRIMITIVES = [
+  ["navy-900","#000019"],["navy-800","#00002b"],["navy-700","#000046"],
+  ["periwinkle-400","#8f8fff"],["orange-500","#ff6300"],["coral-500","#ff4925"],
+  ["magenta-500","#ff0884"],["pink-500","#ff0092"],["red-500","#ff4d4f"],
+  ["green-500","#2fbf71"],["amber-500","#ffb020"],["blue-500","#4d9fff"],
+  ["white","#ffffff"],["black","#000000"]
+];
+var SEMANTICS = [
+  ["background/base-start","#000046","navy-700"],["background/base-end","#000019","navy-900"],
+  ["surface/raised","#ffffff","white"],["surface/field","#00002b","navy-800"],
+  ["border/interactive","#ff6300","orange-500"],["border/divider","rgba(0,0,70,.12)","—"],
+  ["accent/default","#ff6300","orange-500"],["text/on-dark","#ffffff","white"],
+  ["text/on-light-heading","#000046","navy-700"],["text/on-light-body","#000000","black"],
+  ["text/link","#ff6300","orange-500"],["text/placeholder","#8f8fff","periwinkle-400"],
+  ["feedback/error","#ff4d4f","red-500"],["feedback/success","#2fbf71","green-500"],
+  ["feedback/warning","#ffb020","amber-500"],["feedback/info","#4d9fff","blue-500"]
+];
+function border(hex){ return (hex==="#ffffff"||hex==="#000000"||hex==="#000019") ? "border-bottom:1px solid rgba(255,255,255,.12);" : ""; }
+document.getElementById("primitives").innerHTML = PRIMITIVES.map(function(c){
+  return '<div class="swatch"><div class="swatch__chip" style="background:'+c[1]+';'+border(c[1])+'"></div>'+
+    '<div class="swatch__meta"><div class="swatch__name">'+c[0]+'</div><div class="swatch__val">'+c[1]+'</div></div></div>';
+}).join("");
+document.getElementById("semantics").innerHTML = SEMANTICS.map(function(c){
+  return '<div class="swatch"><div class="swatch__chip" style="height:48px;background:'+c[1]+';'+border(c[1])+'"></div>'+
+    '<div class="swatch__meta"><div class="swatch__name">'+c[0]+'</div><div class="swatch__role">→ '+c[2]+'</div></div></div>';
+}).join("");
+
+var SPACING = [4,8,12,16,20,24,32];
+document.getElementById("spacing-grid").innerHTML = SPACING.map(function(n){
+  return '<div class="spec"><div class="viz viz--space" style="width:'+n+'px;"></div><div class="spec__val" style="margin-top:12px;">'+n+'</div><div class="spec__token">--space-'+n+'</div></div>';
+}).join("");
+
+var RADII = [["selection",6],["card-inner",14],["card",16],["pill",32],["full","9999"]];
+document.getElementById("radius-grid").innerHTML = RADII.map(function(r){
+  var rad = r[1]==="9999" ? "9999px" : r[1]+"px";
+  return '<div class="spec"><div class="viz viz--radius" style="border-radius:'+rad+';"></div><div class="spec__val" style="margin-top:12px;font-size:16px;">'+r[1]+'</div><div class="spec__token">'+r[0]+'</div></div>';
+}).join("");
+
+var SIZES = [["control / touch","44px"],["app-bar","56px"],["tab-bar","64px"],["menu-card","114px"],["content-width","340px"],["card-width","400px"],["viewport","440px"],["check / radio","20px"],["switch","44×24"]];
+document.getElementById("sizes-grid").innerHTML = SIZES.map(function(s){
+  return '<div class="spec"><div class="spec__val" style="font-size:18px;">'+s[1]+'</div><div class="spec__name">'+s[0]+'</div></div>';
+}).join("");
+</script>
+</body>
+</html>
