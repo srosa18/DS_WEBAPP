@@ -217,3 +217,19 @@ code, .code {
   .sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
   .page { padding: 40px 22px 100px; }
 }
+
+/* ---- Dev handoff: copy code / copy prompt ---- */
+.dev-copy { display: flex; align-items: center; gap: 8px; margin: 12px 0 2px; flex-wrap: wrap; }
+.dev-copy__tag {
+  font-size: 9px; font-weight: 700; letter-spacing: 1px; color: var(--orange-500);
+  border: 1px solid var(--orange-500); border-radius: 999px; padding: 3px 8px;
+}
+.dev-copy__btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font: 600 11px/1 "Inter", system-ui, sans-serif; color: #fff;
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.16);
+  border-radius: 8px; padding: 7px 11px; cursor: pointer; transition: .15s ease;
+}
+.dev-copy__btn:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.28); }
+.dev-copy__btn:focus-visible { outline: 2px solid var(--orange-500); outline-offset: 2px; }
+.dev-copy__btn.is-copied { color: var(--green-500, #2fbf71); border-color: var(--green-500, #2fbf71); }
